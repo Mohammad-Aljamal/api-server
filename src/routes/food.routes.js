@@ -24,7 +24,7 @@ async function getFood (req,res){
 
 async function addFood (req,res){
     let newFood = req.body;
-    let food = await Food?.create(newFood);
+    let food = await Food.create(newFood);
     res.status(201).send(food);
 }
 
