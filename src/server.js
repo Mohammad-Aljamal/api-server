@@ -11,7 +11,7 @@ function homeHandler(req, res) {
 
 function start(port) {
   app.listen(port, () => {
-    res.send(`the server listen to port ${port}`);
+    console.log(`the server listen to port ${port}`);
   });
 }
 
