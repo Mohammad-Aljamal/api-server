@@ -1,6 +1,6 @@
 'use strict';
 
-const Food = (sequelize, DataTypes) => {
+const Food = (sequelize, DataTypes) => 
     sequelize.define("food", {
         Name: {
             type: DataTypes.STRING,
@@ -12,7 +12,7 @@ const Food = (sequelize, DataTypes) => {
         // }
 
     })
-}
+
 
 
 module.exports = Food;

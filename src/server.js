@@ -1,9 +1,11 @@
 "use strict";
 const express = require("express");
 const app = express();
-const foodRouter = require('./routes/food.routes')
+const foodRouter = require('./routes/food.routes');
+const clothesRouter = require('./routes/clothes.routes')
 app.use(express.json());
 app.use(foodRouter);
+app.use(clothesRouter);
 
 
 app.get("/", homeHandler);
