@@ -4,42 +4,42 @@ const express = require("express");
 const clothesRouter = express.Router();
 const { Clothes } = require('../models/index');
 
-foodRouter.get('/food', getFoods);
-foodRouter.get('/food/:id',getFood);
-foodRouter.post('/food',addFood);
-foodRouter.put('food/:id',editFood);
-foodRouter.delete('food/:id',deleteFood);
+clothesRouter.get('/clothes', getAllClothes);
+clothesRouter.get('/clothes/:id', getClothes);
+clothesRouter.post('/clothes', addClothes);
+clothesRouter.put('/clothes/:id', editClothes);
+clothesRouter.delete('/clothes/:id', deleteClothes);
 
 
-async function getFoods (req,res){
-    let foods = await Food.findAll();
-    res.status(200).json(foods);
+async function getAllClothes (req,res){
+    let clothes = await Clothes.findAll();
+    res.status(200).json(clothes);
 }
 
-async function getFood (req,res){
-    let foodId = presInt(req.params.id);
-    let food = await Food.findOne({ where: {id: foodId}});
-    res.status(200).send(food);
+async function getClothes (req,res){
+    let clothesId = parseInt(req.params.id);
+    let clothes = await Clothes.findOne({ where: {id: clothesId}});
+    res.status(200).send(clothes);
 }
 
-async function addFood (req,res){
-    let newFood = req.body;
-    let food = await Food.create(newFood);
-    res.status(201).send(food);
+async function addClothes (req,res){
+    let newClothes = req.body;
+    let clothes = await Clothes.create(newClothes);
+    res.status(201).send(clothes);
 }
 
-async function editFood (req,res){
-    let foodId = presInt(req.params.id);
-    let updateFood = req.body;
-    let foundFood = await Food.findOne({where: {id: foodId}});
-    let updatedFood = await foundFood.update(updateFood);
-    res.status(201).send(updatedFood);
+async function editClothes (req,res){
+    let clothesId = parseInt(req.params.id);
+    let updateClothes = req.body;
+    let foundClothes = await Clothes.findOne({where: {id: clothesId}});
+    let updatedClothes = await foundClothes.update(updateClothes);
+    res.status(201).send(updatedClothes);
 }
 
-async function deleteFood (req,res) {
-    let foodId = presInt(req.params.id);
-    let deletedFood = await Food.destroy({where: {id: foodId}});
-    res.status(204).send(deletedFood);
+async function deleteClothes (req,res) {
+    let clothesId = parseInt(req.params.id);
+    let deletedClothes = await Clothes.destroy({where: {id: clothesId}});
+    res.status(204).json(deletedClothes);
 }
 
-module.exports = foodRouter;
+module.exports = clothesRouter;
