@@ -2,10 +2,14 @@
 const express = require("express");
 const app = express();
 const foodRouter = require('./routes/food.routes');
-const clothesRouter = require('./routes/clothes.routes')
+const clothesRouter = require('./routes/clothes.routes');
+const bookRouter = require('./routes/book.routes');
+const authorRouter = require('./routes/author.routes');
 app.use(express.json());
 app.use(foodRouter);
 app.use(clothesRouter);
+app.use(bookRouter);
+app.use(authorRouter);
 
 
 app.get("/", homeHandler);
