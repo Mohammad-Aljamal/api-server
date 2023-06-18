@@ -21,7 +21,7 @@ async function getAllAuthors(req,res){
 
 async function getAuthor(req,res){
     const authorId = parseInt(req.params.id)
-    let author = await AuthorModel.read(authorId);
+    let author = await AuthorModel.read({authorId:authorId});
     res.status(200).json(author); 
 }
 
@@ -32,15 +32,15 @@ async function addAuthor(req,res){
 }
 
 async function editAuthor(req,res){
-    const AuthorId = parseInt(req.params.id);
+    const authorId = parseInt(req.params.id);
     const updateAuthor = req.body;
-    const updatedAuthor = await AuthorModel.update(updateAuthor, AuthorId)
+    const updatedAuthor = await AuthorModel.update(updateAuthor, authorId)
     res.status(201).json(updatedAuthor);
 }
 
 async function deleteAuthor(req,res){
-    const AuthorId = parseInt(req.params.id);
-    let deletedAuthor = await AuthorModel.delete(AuthorId);
+    const authorId = parseInt(req.params.id);
+    let deletedAuthor = await AuthorModel.delete(authorId);
     res.status(204).json(deletedAuthor);
 }
 

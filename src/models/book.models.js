@@ -6,7 +6,7 @@ sequelize.define("book", {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    autherId: {
+    authorId: {
         type: DataTypes.INTEGER,
         allowNull: false
     }
