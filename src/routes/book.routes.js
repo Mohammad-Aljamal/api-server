@@ -24,6 +24,7 @@ async function getBook(req,res){
 
 async function addBook(req,res){
     const newBook = req.body;
+    console.log(newBook);
     const book = await BookModel.add(newBook);
     res.status(201).json(book);
 }

@@ -30,12 +30,12 @@ let sequelizeOptions = process.env.NODE_ENV === "production" ?
     const BookCollection = new Collection (BookTable);
 
     AuthorTable.hasMany(BookTable , {
-        foreignKey: 'autherId',
+        foreignKey: 'authorId',
         sourceKey: 'id',
     })
 
     BookTable.belongsTo(AuthorTable, {
-        foriegnKey: 'autherId',
+        foriegnKey: 'authorId',
         targetKey: 'id',
     })
 

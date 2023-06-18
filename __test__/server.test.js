@@ -84,21 +84,21 @@ describe('testing my server', () => {
     });
 
 
-    // it('can add a book', async () => {
-    //     const response = await mockServerMethods.post('/book').send({
-    //         bookName: 'book1',
-    //         autherId: 1
-    //     });
-    //     expect(response.status).toBe(201);
-    // });
+    it('can add a book', async () => {
+        const response = await mockServerMethods.post('/book').send({
+            bookName: 'book1',
+            authorId: 1
+        });
+        expect(response.status).toBe(201);
+    });
     it('can read all books', async () => {
         const response = await mockServerMethods.get('/book');
         expect(response.status).toBe(200);
     });
-    // it('can update book', async () => {
-    //     const response = await mockServerMethods.put('/book/1');
-    //     expect(response.status).toBe(201);
-    // });
+    it('can update book', async () => {
+        const response = await mockServerMethods.put('/book/1');
+        expect(response.status).toBe(201);
+    });
     it('can delete book', async () => {
         const response = await mockServerMethods.delete('/book/1');
         expect(response.status).toBe(204);

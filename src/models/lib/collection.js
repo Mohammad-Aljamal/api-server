@@ -14,14 +14,24 @@ class Collection {
     }
 
     async add(obj){
+        try {
+            console.log(obj);
         let newRecord = await this.model.create(obj);
         return newRecord
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     async update(obj, data_id){
-        let foundObj = await this.model.findOne({where: {id: data_id}});
-        let updatedObj = await foundObj.update(obj);
-        return updatedObj;
+        try {
+            let foundObj = await this.model.findOne({where: {id: data_id}});
+            let updatedObj = await foundObj.update(obj);
+            return updatedObj; 
+        } catch (error) {
+            console.log(error);
+        }
+      
     }
 
     async delete(data_id){
